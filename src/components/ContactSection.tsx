@@ -29,7 +29,7 @@ const ContactSection = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-14 h-14 card-gradient rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-glow group"
+                  className="w-14 h-14 card-gradient rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 group hover:shadow-glow"
                   aria-label={social.label}
                 >
                   <IconComponent className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />

@@ -113,14 +113,22 @@ All colors MUST be HSL.
 
 @layer components {
   .btn-gradient {
-    @apply bg-gradient-to-r from-primary to-secondary text-background font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-glow hover:scale-105;
+    @apply bg-gradient-to-r from-primary to-secondary text-background font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105;
     background: var(--gradient-primary);
+  }
+  
+  .btn-gradient:hover {
+    box-shadow: var(--shadow-glow);
   }
   
   .card-gradient {
     background: var(--gradient-card);
     @apply border border-border/50 backdrop-blur-sm;
     box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
   }
   
   .floating-dots::before {
