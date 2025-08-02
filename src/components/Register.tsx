@@ -30,7 +30,7 @@ export default function RegistrationForm() {
         console.log('Form submitted:', form);
     }
   return (
-    <div className='relative z-1 floating-dots'>
+    <div id='register' className='relative z-1 floating-dots'>
       <div className="min-h-screen flex items-center justify-center font-sans">
       <div className="rounded-2xl shadow-lg flex w-full max-w-4xl overflow-hidden">
         {/* Left Side - Image */}
