@@ -1,40 +1,53 @@
-const AboutSection = () => {
+
+
+export default function GDSCComponent() {
   return (
-    <section id="about" className="py-20 relative floating-dots">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            What is <span className="text-gradient">GDSC?</span>
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-        </div>
+    <div id="about" className="relative z-10">
+    <h1 className="text-4xl lg:text-5xl font-bold text-white flex justify-center z-10">
+          What is &nbsp;<span className="text-gradient">GDG?</span>
+    </h1> 
+    <div className="flex flex-col lg:flex-row items-center gap-8 p-8 max-w-6xl mx-auto">
+      
+      {/* Text Content */}
+      <div className="flex-1 space-y-6 z-10">
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Google Developer Student Clubs (GDSC) are community groups for students interested in Google developer technologies.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We host events, workshops, and projects where students can learn about a wide range of technical topics and build solutions for local problems.
-            </p>
+        <p className="text-lg leading-relaxed">
+          Google Developer Student Clubs (GDSC) are community groups for students interested in Google developer technologies.
+        </p>
+        
+        <p className="text-lg text-white/70 leading-relaxed">
+          We host events, workshops, and projects where students can learn about a wide range of technical topics and build solutions for local problems.
+        </p>
+        
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 bg-teal-400 rounded-full"></div>
+            <span className="text-lg font-medium">100+ Universities</span>
           </div>
           
-          <div className="relative">
-            <div className="card-gradient rounded-3xl p-8 overflow-hidden">
-              <div className="w-full h-64 bg-gradient-to-br from-primary/20 via-secondary/20 to-transparent rounded-2xl flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-20 h-20 bg-primary/30 rounded-full flex items-center justify-center mx-auto">
-                    <div className="w-12 h-12 bg-primary rounded-full"></div>
-                  </div>
-                  <div className="text-lg font-semibold text-primary">Community of Developers</div>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+            <span className="text-lg font-medium">Student-Led</span>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
+            <span className="text-lg font-medium">Open to All</span>
           </div>
         </div>
       </div>
-    </section>
+      
+      {/* Image */}
+      <div className="flex-1">
+        <div className="relative w-full h-80 lg:h-96 rounded-lg overflow-hidden">
+          <img
+            src="/group-image.png"
+            alt="GDSC students group photo"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </div>
+    </div>
   );
-};
-
-export default AboutSection;
+}

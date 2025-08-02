@@ -3,10 +3,10 @@ import { Mail, Instagram, Twitter, Linkedin, Github } from "lucide-react";
 const ContactSection = () => {
   const socialLinks = [
     { icon: Mail, href: "mailto:gdg.campus@gmail.com", label: "Email" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" }
+    { icon: Instagram, href: "https://www.instagram.com/gdg_akgec/", label: "Instagram" },
+    { icon: Twitter, href: "https://x.com/gdg_akgec", label: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/google-developer-groups-on-campus-akgec/posts/?feedView=all", label: "LinkedIn" },
+    { icon: Github, href: "", label: "GitHub" }
   ];
 
   return (

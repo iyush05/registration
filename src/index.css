@@ -120,6 +120,12 @@ All colors MUST be HSL.
   .btn-gradient:hover {
     box-shadow: var(--shadow-glow);
   }
+
+  .calender-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary text-background font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow);
+  }
   
   .card-gradient {
     background: var(--gradient-card);
@@ -152,4 +158,31 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+}
+
+.floating-div {
+  
+  background-color: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -13,13 +13,13 @@ const CalendarSection = () => {
           </div>
           
           <div className="flex items-center gap-8">
-            <div className="card-gradient rounded-2xl p-6 text-center border-primary/30">
+            <div className="card-gradient rounded-2xl p-6 text-center border-primary/30 calender-gradient shadow-lg shadow-cyan-300">
               <div className="text-4xl font-bold text-foreground">28</div>
               <div className="text-primary font-semibold text-sm tracking-wider">AUGUST</div>
             </div>
             
-            <Button className="bg-secondary hover:bg-secondary/90 text-background px-8 py-4 text-lg font-semibold rounded-xl">
-              Save Your Spot
+            <Button className="btn-gradient  text-lg px-8 py-4">
+              <a href="#register">Register Now</a>
             </Button>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 const RegistrationSection = () => {
   return (
-    <section className="py-20 relative">
+    <section id="register" className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
