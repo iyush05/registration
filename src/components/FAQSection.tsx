@@ -11,10 +11,6 @@ const FAQSection = () => {
       answer: "Yes! Registration is completely free. We believe in making technology education accessible to everyone."
     },
     {
-      question: "Will I get a certificate?",
-      answer: "Yes, all participants who attend the full event will receive a certificate of participation from Google Developer Groups."
-    },
-    {
       question: "Do I need to bring my laptop?",
       answer: "Yes, please bring your laptop as we'll have hands-on coding sessions and workshops that require a computer."
     },

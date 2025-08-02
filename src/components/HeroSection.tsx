@@ -22,7 +22,7 @@ const HeroSection = () => {
             </Button>
             <div className="flex items-center gap-3 text-primary">
               <Calendar className="w-5 h-5" />
-              <span className="font-semibold">28th August, 2025</span>
+              <span className="font-semibold">22nd August, 2025</span>
             </div>
           </div>
         </div>

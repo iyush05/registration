@@ -2,7 +2,7 @@
 
 export default function GDSCComponent() {
   return (
-    <div id="about" className="relative z-10">
+    <div id="about" className="relative z-10 floating-dots">
     <h1 className="text-4xl lg:text-5xl font-bold text-white flex justify-center z-10">
           What is &nbsp;<span className="text-gradient">GDG?</span>
     </h1> 
@@ -12,7 +12,7 @@ export default function GDSCComponent() {
       <div className="flex-1 space-y-6 z-10">
         
         <p className="text-lg leading-relaxed">
-          Google Developer Student Clubs (GDSC) are community groups for students interested in Google developer technologies.
+          Google Developer Group (GDG) are community groups for students interested in Google developer technologies.
         </p>
         
         <p className="text-lg text-white/70 leading-relaxed">

@@ -14,6 +14,7 @@ export default function RegistrationForm() {
     branch: '',
     session: '',
     type: '',
+    domain: '',
     updates: false,
     })
     const handleChange = (e) => {
@@ -29,7 +30,7 @@ export default function RegistrationForm() {
         console.log('Form submitted:', form);
     }
   return (
-    <div className='relative z-10'>
+    <div className='relative z-1 floating-dots'>
       <div className="min-h-screen flex items-center justify-center font-sans">
       <div className="rounded-2xl shadow-lg flex w-full max-w-4xl overflow-hidden">
         {/* Left Side - Image */}
@@ -76,6 +77,7 @@ export default function RegistrationForm() {
                 <input 
                     value={form.email}
                     onChange={handleChange}
+                    name="email"
                   type="email" 
                   placeholder="Email Address" 
                   className="w-full bg-[#33333A] border border-zinc-600 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -105,10 +107,24 @@ export default function RegistrationForm() {
               {/* Gender */}
               <div className="relative">
                 <select className="w-full bg-[#33333A] border border-zinc-600 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500" value={form.gender} onChange={handleChange} name="gender">
-                  <option value="" disabled selected className="text-zinc-400">Gender</option>
+                  <option value="" disabled className="text-zinc-400">Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
+                  <ChevronDown size={20} />
+                </div>
+              </div>
+
+              {/* Domain */}
+              <div className="relative">
+                <select className="w-full bg-[#33333A] border border-zinc-600 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500" value={form.domain} onChange={handleChange} name="domain">
+                  <option value="" disabled className="text-zinc-400">Domain</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="machine-learning">Machine Learning</option>
+                  <option value="app-development">App Development</option>
+                  <option value="ui-ux-designing">UI/UX Designing</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
                   <ChevronDown size={20} />
@@ -156,9 +172,9 @@ export default function RegistrationForm() {
               />
 
               {/* Hosteller/Day Scholar */}
-              <div className="relative">
+              <div className="relative md:col-span-2">
                 <select className="w-full bg-[#33333A] border border-zinc-600 rounded-lg px-4 py-3 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500" value={form.type} onChange={handleChange} name="type">
-                  <option value="" disabled selected className="text-zinc-400">Type</option>
+                  <option value="" disabled className="text-zinc-400">Type</option>
                   <option value="hosteller">Hosteller</option>
                   <option value="day-scholar">Day Scholar</option>
                 </select>
@@ -169,7 +185,7 @@ export default function RegistrationForm() {
             </div>
 
             <div className="flex items-center mt-8 mb-6">
-              <input type="checkbox" value={form.updates} name="updates" id="updates" className="w-5 h-5 bg-[#33333A] border-zinc-600 rounded text-blue-500 focus:ring-blue-500" />
+              <input type="checkbox" checked={form.updates} onChange={(e) => setForm(prev => ({...prev, updates: e.target.checked}))} name="updates" id="updates" className="w-5 h-5 bg-[#33333A] border-zinc-600 rounded text-blue-500 focus:ring-blue-500" />
               <label htmlFor="updates" className="ml-3 text-zinc-400">I agree to receive updates about GDG events</label>
             </div>
 
