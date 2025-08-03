@@ -125,6 +125,7 @@ export default function RegistrationForm() {
                   <option value="machine-learning">Machine Learning</option>
                   <option value="app-development">App Development</option>
                   <option value="ui-ux-designing">UI/UX Designing</option>
+                  <option value="management">Management</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
                   <ChevronDown size={20} />
