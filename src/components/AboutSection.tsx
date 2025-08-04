@@ -15,7 +15,7 @@ export default function GDSCComponent() {
           Google Developer Group (GDG) are community groups for students interested in Google developer technologies.
         </p>
         
-        <p className="text-lg text-white/70 leading-relaxed">
+        <p className="text-lg text-white leading-relaxed">
           We host events, workshops, and projects where students can learn about a wide range of technical topics and build solutions for local problems.
         </p>
         
