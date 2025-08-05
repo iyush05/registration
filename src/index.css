@@ -186,3 +186,35 @@ All colors MUST be HSL.
 html {
   scroll-behavior: smooth;
 }
+
+
+/* Simple fix - copy and paste this into your CSS file */
+input, select {
+    background-color: #33333A !important;
+    color: white !important;
+    border-color: #52525b !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #33333A inset !important;
+    -webkit-text-fill-color: white !important;
+    background-color: #33333A !important;
+    color: white !important;
+    transition: none !important;
+}
+
+input:focus, select:focus {
+    border-color: #3b82f6 !important;
+}
+
+select option {
+    background-color: #33333A !important;
+    color: white !important;
+}
