@@ -41,7 +41,7 @@ export default function GDSCComponent() {
       <div className="flex-1">
         <div className="relative w-full h-80 lg:h-96 rounded-lg overflow-hidden">
           <img
-            src="/group-image.png"
+            src="/Group.jpg"
             alt="GDSC students group photo"
             className="object-cover"
           />
