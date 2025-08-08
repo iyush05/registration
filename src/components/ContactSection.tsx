@@ -41,10 +41,10 @@ const ContactSection = () => {
           <p className="text-muted-foreground">
             Or email us directly at:{" "}
             <a 
-              href="mailto:gdg.campus@gmail.com" 
+              href="mailto:Connect2dsc.akgec@gmail.com" 
               className="text-primary hover:text-primary/80 transition-colors font-semibold"
             >
-              gdg.campus@gmail.com
+              Connect2dsc.akgec@gmail.com
             </a>
           </p>
         </div>
