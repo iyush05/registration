@@ -10,6 +10,7 @@ export default function RegistrationForm() {
     const [otpSent, setOtpSent] = useState(false)
     const [message, setMessage] = useState('')
     const [messageType, setMessageType] = useState('') // 'success' or 'error'
+   const [isRegistered, setIsRegistered] = useState(false);
 
     // Set your backend API base URL
     const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
@@ -360,7 +361,7 @@ export default function RegistrationForm() {
             setIsSubmitting(false);
             return;
         }
-
+       setIsRegistered(true);
         try {
             const response = await fetch(`${API_BASE_URL}/verify-otp`, {
                 method: 'POST',
@@ -379,7 +380,7 @@ export default function RegistrationForm() {
                 setMessage(data.message);
                 setMessageType('success');
                 setErrors({});
-                
+                setIsRegistered(true);
                 // Reset form after successful registration
                 setTimeout(() => {
                     setForm({
@@ -427,22 +428,297 @@ export default function RegistrationForm() {
     };
 
     return (
-        <div id='register' className='relative z-1 floating-dots'>
-            <div className="min-h-screen flex items-center justify-center font-sans">
-                <div className="rounded-2xl shadow-lg flex w-full max-w-4xl overflow-hidden">
-                    {/* Left Side - Image */}
-                    <div className="hidden w-1/2 md:block">
-                        <img 
-                            src="./register.png" 
-                            alt="Gaming event with blue neon lights" 
-                            className="object-cover w-full h-full"
-                            onError={(e) => { e.currentTarget.src = 'https://placehold.co/600x800/18181B/FFFFFF?text=Event+Image'; e.currentTarget.onerror = null; }}
-                        />
-                    </div>
+        // <div id='register' className='relative z-1 floating-dots'>
+        //     <div className="min-h-screen flex items-center justify-center font-sans">
+        //         <div className="rounded-2xl shadow-lg flex w-full max-w-4xl overflow-hidden">
+        //             {/* Left Side - Image */}
+                   
+        //             {/* Right Side - Form */}
+        //             <div className="w-full p-8 text-white  md:p-12">
+        //                 <h2 className="mb-4 text-3xl font-bold">Register Now</h2>
+        //                 <p className="mb-8 text-zinc-400">
+        //                     Please fill out the form below to complete your registration.
+        //                 </p>
 
-                    {/* Right Side - Form */}
-                    <div className="w-full p-8 text-white md:w-1/2 md:p-12">
-                        <h2 className="mb-4 text-3xl font-bold">Register Now</h2>
+        //                 {/* Message Display */}
+        //                 {message && (
+        //                     <div className={`mb-4 p-3 rounded-lg ${messageType === 'success' ? 'bg-green-600/20 border border-green-500 text-green-300' : 'bg-red-600/20 border border-red-500 text-red-300'}`}>
+        //                         {message}
+        //                     </div>
+        //                 )}
+
+        //                 <div>
+        //                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+        //                         {/* Name */}
+        //                         <div>
+        //                             <input   
+        //                                 value={form.name}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="name"
+        //                                 type="text" 
+        //                                 placeholder="Name" 
+        //                                 className={getInputClassName('name')}
+        //                                 disabled={otpSent}
+        //                             />
+        //                             {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
+        //                         </div>
+                                
+        //                         {/* Student No */}
+        //                         <div>
+        //                             <input 
+        //                                 value={form.studentNo}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="studentNo"
+        //                                 type="text" 
+        //                                 placeholder="Student Number" 
+        //                                 className={getInputClassName('studentNo')}
+        //                                 disabled={otpSent}
+        //                             />
+        //                             {errors.studentNo && <p className="mt-1 text-sm text-red-400">{errors.studentNo}</p>}
+        //                         </div>
+
+        //                         {/* Email */}
+        //                         <div className="md:col-span-2">
+        //                             <input 
+        //                                 value={form.email}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="email"
+        //                                 type="email" 
+        //                                 placeholder="Email Address" 
+        //                                 className={getInputClassName('email')}
+        //                                 disabled={otpSent}
+        //                             />
+        //                             {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
+        //                         </div>
+
+        //                         {/* Phone */}
+        //                         <div>
+        //                             <input 
+        //                                 value={form.phone}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="phone" 
+        //                                 type="tel" 
+        //                                 placeholder="Mobile No." 
+        //                                 className={getInputClassName('phone')}
+        //                                 disabled={otpSent}
+        //                             />
+        //                             {errors.phone && <p className="mt-1 text-sm text-red-400">{errors.phone}</p>}
+        //                         </div>
+
+        //                         {/* Gender - Removed "Other" option to match backend */}
+        //                         <div className="relative">
+        //                             <select 
+        //                                 className={getSelectClassName('gender')} 
+        //                                 value={form.gender} 
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="gender"
+        //                                 disabled={otpSent}
+        //                             >
+        //                                 <option value="" disabled className="text-zinc-400">Gender</option>
+        //                                 <option value="male">Male</option>
+        //                                 <option value="female">Female</option>
+        //                             </select>
+        //                             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
+        //                                 <ChevronDown size={20} />
+        //                             </div>
+        //                             {errors.gender && <p className="mt-1 text-sm text-red-400">{errors.gender}</p>}
+        //                         </div>
+
+        //                         {/* Domain - Keep for UI but don't validate */}
+        //                         <div className="relative">
+        //                             <select 
+        //                                 className={getSelectClassName('domain')} 
+        //                                 value={form.domain} 
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="domain"
+        //                                 disabled={otpSent}
+        //                             >
+        //                                 <option value="" disabled className="text-zinc-400">Domain</option>
+        //                                 <option value="web-development">Web Development</option>
+        //                                 <option value="machine-learning">Machine Learning</option>
+        //                                 <option value="app-development">App Development</option>
+        //                                 <option value="ui-ux-designing">UI/UX Designing</option>
+        //                                 <option value="management">Management</option>
+        //                             </select>
+        //                             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
+        //                                 <ChevronDown size={20} />
+        //                             </div>
+        //                             {errors.domain && <p className="mt-1 text-sm text-red-400">{errors.domain}</p>}
+        //                         </div>
+
+        //                         {/* HackerRank ID */}
+        //                         <div>
+        //                             <input 
+        //                                 value={form.hackerrankId}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="hackerrankId"
+        //                                 type="text" 
+        //                                 placeholder="HackerRank ID" 
+        //                                 className={getInputClassName('hackerrankId')}
+        //                                 disabled={otpSent}
+        //                                 autoComplete='off'
+        //                             />
+        //                             {errors.hackerrankId && <p className="mt-1 text-sm text-red-400">{errors.hackerrankId}</p>}
+        //                         </div>
+
+        //                         {/* Unstop ID */}
+        //                         <div>
+        //                             <input 
+        //                                 value={form.unstopId}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="unstopId"
+        //                                 type="text" 
+        //                                 placeholder="Unstop ID" 
+        //                                 className={getInputClassName('unstopId')}
+        //                                 disabled={otpSent}
+        //                                 autoComplete='off'
+        //                             />
+        //                             {errors.unstopId && <p className="mt-1 text-sm text-red-400">{errors.unstopId}</p>}
+        //                         </div>
+
+        //                         {/* Branch */}
+        //                         <div className="relative">
+        //                             <select 
+        //                                 className={getSelectClassName('branch')} 
+        //                                 value={form.branch} 
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="branch"
+        //                                 disabled={otpSent}
+        //                             >
+        //                                 <option value="" disabled className="text-zinc-400">Branch</option>
+        //                                 <option value="CSE">CSE</option>
+        //                                 <option value="CSE(AIML)">CSE(AIML)</option>
+        //                                 <option value="CSE(DS)">CSE(DS)</option>
+        //                                 <option value="CSE(HINDI)">CSE(HINDI)</option>
+        //                                 <option value="CS">CS</option>
+        //                                 <option value="CSIT">CSIT</option>
+        //                                 <option value="IT">IT</option>
+        //                                 <option value="ECE">ECE</option>
+        //                                 <option value="EN">EN</option>
+        //                                 <option value="ME">ME</option>
+        //                                 <option value="CIVIL">CIVIL</option>
+        //                                 <option value="AIML">AIML</option>
+        //                             </select>
+        //                             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
+        //                                 <ChevronDown size={20} />
+        //                             </div>
+        //                             {errors.branch && <p className="mt-1 text-sm text-red-400">{errors.branch}</p>}
+        //                         </div>
+
+        //                         {/* Hostel Status - Updated values to match backend */}
+        //                         <div className="relative">
+        //                             <select 
+        //                                 className={getSelectClassName('hostelStatus')} 
+        //                                 value={form.hostelStatus} 
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="hostelStatus"
+        //                                 disabled={otpSent}
+        //                             >
+        //                                 <option value="" disabled className="text-zinc-400">Hostel Status</option>
+        //                                 <option value="Hosteler">Hosteller</option>
+        //                                 <option value="Day Scholar">Day Scholar</option>
+        //                             </select>
+        //                             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
+        //                                 <ChevronDown size={20} />
+        //                             </div>
+        //                             {errors.hostelStatus && <p className="mt-1 text-sm text-red-400">{errors.hostelStatus}</p>}
+        //                         </div>
+
+        //                         {/* OTP */}
+        //                         <div>
+        //                             <input 
+        //                                 value={form.otp}
+        //                                 onChange={handleChange}
+        //                                 onBlur={handleBlur}
+        //                                 name="otp"
+        //                                 type="text" 
+        //                                 placeholder={otpSent ? "Enter 6-digit OTP" : "OTP (will be enabled after sending)"} 
+        //                                 className={getInputClassName('otp')}
+        //                                 disabled={!otpSent}
+        //                                 maxLength="6"
+        //                             />
+        //                             {errors.otp && <p className="mt-1 text-sm text-red-400">{errors.otp}</p>}
+        //                         </div>
+
+        //                         {/* Send OTP / Resend OTP Button */}
+        //                     </div>
+
+        //                     <div className="flex items-center mt-8 mb-6">
+        //                         <input 
+        //                             type="checkbox" 
+        //                             checked={form.updates} 
+        //                             onChange={(e) => setForm(prev => ({...prev, updates: e.target.checked}))} 
+        //                             name="updates" 
+        //                             id="updates" 
+        //                             className="w-5 h-5 bg-[#33333A] border-zinc-600 rounded text-blue-500 focus:ring-blue-500" 
+        //                         />
+        //                         <label htmlFor="updates" className="ml-3 text-zinc-400">I agree to receive updates about GDG events</label>
+        //                     </div>
+
+        //                     <div className='pb-2'>
+        //                         <ReCAPTCHA 
+        //                             sitekey={CAPTCHA_SITE}
+        //                             onChange={handleCaptcha} 
+        //                         />
+        //                         {errors.captcha && <p className="mt-1 text-sm text-red-400">{errors.captcha}</p>}
+        //                     </div>
+
+
+        //                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 mb-2">
+        //                           <button  
+        //                             type="button"
+        //                             onClick={otpSent ? handleResendOTP : handleSendOTP}
+        //                             disabled={isSendingOTP}
+        //                             className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        //                         >
+        //                             {isSendingOTP ? 'Sending...' : (otpSent ? 'Resend OTP' : 'Send OTP')}
+        //                         </button>
+        //                      </div>
+                            
+
+        //                     <button  
+        //                         type="submit"
+        //                         onClick={handleSubmit}
+        //                         disabled={isSubmitting || !otpSent}
+        //                         className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        //                     >
+        //                         {isSubmitting ? 'Verifying...' : 'Secure My Spot'}
+        //                     </button>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>
+        
+
+<div id="register" className="relative z-1 floating-dots">
+  <div className="min-h-screen flex items-center justify-center font-sans">
+    <div className="rounded-2xl shadow-lg flex w-full max-w-4xl overflow-hidden">
+      <div className="w-full p-8 text-white md:p-12">
+        {isRegistered ? (
+          // ✅ Success message
+          <div className="text-center">
+            <h2 className="mb-4 text-3xl font-bold text-green-400">
+              Registered Successfully! 🎉
+            </h2>
+            <p className="text-zinc-300">
+              Thank you for registering. We’ll contact you soon.
+            </p>
+          </div>
+        ) : (
+          // ❌ Your existing form code
+          <>
+             <h2 className="mb-4 text-3xl font-bold">Register Now</h2>
                         <p className="mb-8 text-zinc-400">
                             Please fill out the form below to complete your registration.
                         </p>
@@ -658,14 +934,6 @@ export default function RegistrationForm() {
                                 </div>
 
                                 {/* Send OTP / Resend OTP Button */}
-                                <button  
-                                    type="button"
-                                    onClick={otpSent ? handleResendOTP : handleSendOTP}
-                                    disabled={isSendingOTP}
-                                    className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {isSendingOTP ? 'Sending...' : (otpSent ? 'Resend OTP' : 'Send OTP')}
-                                </button>
                             </div>
 
                             <div className="flex items-center mt-8 mb-6">
@@ -688,6 +956,19 @@ export default function RegistrationForm() {
                                 {errors.captcha && <p className="mt-1 text-sm text-red-400">{errors.captcha}</p>}
                             </div>
 
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 mb-2">
+                                  <button  
+                                    type="button"
+                                    onClick={otpSent ? handleResendOTP : handleSendOTP}
+                                    disabled={isSendingOTP}
+                                    className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isSendingOTP ? 'Sending...' : (otpSent ? 'Resend OTP' : 'Send OTP')}
+                                </button>
+                             </div>
+                            
+
                             <button  
                                 type="submit"
                                 onClick={handleSubmit}
@@ -697,9 +978,16 @@ export default function RegistrationForm() {
                                 {isSubmitting ? 'Verifying...' : 'Secure My Spot'}
                             </button>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
     );
 }
+
+
+
+
