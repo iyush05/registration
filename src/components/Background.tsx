@@ -28,7 +28,7 @@ const NeonFloatingBackground = () => {
     const isMobile = window.innerWidth <= 768;
     const neonCircleCount = isMobile ? 6 : 25;
 
-    const neonCircles = Array.from({ length: 8 }, (_, i) => ({
+    const neonCircles = Array.from({ length: neonCircleCount }, (_, i) => ({
       layer: i % 3,
       x: Math.random() * width,
       y: Math.random() * height,
