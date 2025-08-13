@@ -766,12 +766,12 @@ export default function RegistrationForm() {
                                             {errors.captcha && <p className="mt-1 text-sm text-red-400">{errors.captcha}</p>}
                                         </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 mb-2">
+                                        <div className="flex justify-center mb-2 md:grid-cols-2 gap-x-6 gap-y-6 mb-2">
                                             <button  
                                                 type="button"
                                                 onClick={otpSent ? handleResendOTP : handleSendOTP}
                                                 disabled={isSendingOTP}
-                                                className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-[#0ea5e9] hover:bg-[#318cb7] disabled:opacity-50 disabled:cursor-not-allowed"
+                                                className="w-full max-w-44 px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-[#0ea5e9] hover:bg-[#318cb7] disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
                                                 {isSendingOTP ? 'Sending...' : (otpSent ? 'Resend OTP' : 'Send OTP')}
                                             </button>
