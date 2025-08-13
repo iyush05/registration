@@ -2,10 +2,18 @@ import { Mail, Instagram, Twitter, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => {
   const socialLinks = [
-    { icon: Instagram, href: "https://www.instagram.com/gdg_akgec/", label: "Instagram" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/gdg_akgec/",
+      label: "Instagram",
+    },
     { icon: Twitter, href: "https://x.com/gdg_akgec", label: "Twitter" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/google-developer-groups-on-campus-akgec/posts/?feedView=all", label: "LinkedIn" },
-    { icon: Github, href: "", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/company/google-developer-groups-on-campus-akgec/posts/?feedView=all",
+      label: "LinkedIn",
+    },
+    // { icon: Github, href: "", label: "GitHub" },
     // { icon: Mail, href: "mailto:gdg.campus@gmail.com", label: "Email" },
   ];
 
@@ -17,11 +25,12 @@ const ContactSection = () => {
             Get in <span className="gradient-text">Touch</span>
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-8"></div>
-          
+
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have questions or need more information? Reach out to us through any of these channels:
+            Have questions or need more information? Reach out to us through any
+            of these channels:
           </p>
-          
+
           <div className="flex justify-center gap-6 py-8">
             {socialLinks.map((social, index) => {
               const IconComponent = social.icon;
@@ -29,6 +38,8 @@ const ContactSection = () => {
                 <a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-14 h-14 card-gradient rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 group hover:shadow-glow"
                   aria-label={social.label}
                 >
@@ -37,11 +48,11 @@ const ContactSection = () => {
               );
             })}
           </div>
-          
+
           <p className="text-muted-foreground">
             Or email us directly at:{" "}
-            <a 
-              href="mailto:connect2dsc.akgec@gmail.com" 
+            <a
+              href="mailto:connect2dsc.akgec@gmail.com"
               className="text-primary hover:text-primary/80 transition-colors font-semibold"
             >
               connect2dsc.akgec@gmail.com

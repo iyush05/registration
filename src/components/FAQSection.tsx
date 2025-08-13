@@ -3,20 +3,20 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQSection = () => {
   const faqs = [
     {
-      question: "Who can attend the event?",
-      answer: "The event is open to all students interested in technology and development, regardless of their experience level. Whether you're a beginner or an experienced developer, you're welcome to join!"
+      question: "Who can join GDG in the second-year recruitment drive?",
+      answer: "Any second-year student passionate about technology, development, or community work can apply. You do not need to be an expert — just have the willingness to learn and contribute."
     },
     {
-      question: "Is registration free?",
-      answer: "Yes! Registration is completely free. We believe in making technology education accessible to everyone."
+      question: "What roles or responsibilities will I have after joining?",
+      answer: "Members will work on organizing tech events, workshops, and hackathons, collaborate on projects, and help grow the community through outreach and innovation."
     },
     {
-      question: "Do I need to bring my laptop?",
-      answer: "Yes, please bring your laptop as we'll have hands-on coding sessions and workshops that require a computer."
+      question: "Do I need prior technical experience to join?",
+      answer: "No, prior experience is not mandatory. GDG values curiosity, teamwork, and a growth mindset over skill level. We provide learning opportunities and mentorship."
     },
     {
-      question: "What technologies will be covered?",
-      answer: "We'll cover a variety of technologies including Flutter, Firebase, Web Technologies, Cloud Computing, and more. The specific topics will be announced closer to the event date."
+      question: "How is the recruitment process structured?",
+      answer: "The process usually includes an application form, a short technical or creative task, and an interaction round to understand your skills, interests, and motivation."
     }
   ];
 
