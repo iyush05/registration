@@ -771,7 +771,7 @@ export default function RegistrationForm() {
                                                 type="button"
                                                 onClick={otpSent ? handleResendOTP : handleSendOTP}
                                                 disabled={isSendingOTP}
-                                                className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-[#0ea5e9] hover:bg-[#318cb7] disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
                                                 {isSendingOTP ? 'Sending...' : (otpSent ? 'Resend OTP' : 'Send OTP')}
                                             </button>
@@ -781,7 +781,7 @@ export default function RegistrationForm() {
                                             type="submit"
                                             onClick={handleSubmit}
                                             disabled={isSubmitting || !otpSent}
-                                            className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-500 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="w-full px-4 py-3 font-bold text-white transition duration-300 rounded-lg bg-[#0ea5e9] hover:bg-[#318cb7] disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                             {isSubmitting ? 'Verifying...' : 'Secure My Spot'}
                                         </button>

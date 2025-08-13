@@ -26,7 +26,7 @@ const NeonFloatingBackground = () => {
     }[] = [];
 
     const isMobile = window.innerWidth <= 768;
-    const neonCircleCount = isMobile ? 6 : 25;
+    const neonCircleCount = isMobile ? 0 : 0;
 
     const neonCircles = Array.from({ length: neonCircleCount }, (_, i) => ({
       layer: i % 3,
@@ -71,7 +71,7 @@ const NeonFloatingBackground = () => {
     };
 
     const animate = () => {
-      ctx.fillStyle = "#0a0f2c";
+      ctx.fillStyle = "#152845";
       ctx.fillRect(0, 0, width, height);
 
       const now = performance.now();
@@ -112,47 +112,47 @@ const NeonFloatingBackground = () => {
       }
 
       // Planets
-      for (let i = 0; i < planets.length; i++) {
-        const p = planets[i];
+      // for (let i = 0; i < planets.length; i++) {
+      //   const p = planets[i];
 
-        if (p.orbit) {
-          const orbit = orbitingPlanets[i];
-          orbit.angle += orbit.orbitSpeed;
-          p.x = orbit.centerX + Math.cos(orbit.angle) * orbit.radius;
-          p.y = orbit.centerY + Math.sin(orbit.angle) * orbit.radius;
-        } else {
-          applyAttraction(p);
+      //   if (p.orbit) {
+      //     const orbit = orbitingPlanets[i];
+      //     orbit.angle += orbit.orbitSpeed;
+      //     p.x = orbit.centerX + Math.cos(orbit.angle) * orbit.radius;
+      //     p.y = orbit.centerY + Math.sin(orbit.angle) * orbit.radius;
+      //   } else {
+      //     applyAttraction(p);
 
-          if (burstActive) {
-            const dx = p.x - clickPos.current.x;
-            const dy = p.y - clickPos.current.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 200) {
-              const strength = (1 - dist / 200) * 0.3;
-              p.dx += dx * strength;
-              p.dy += dy * strength;
-            }
-          }
+      //     if (burstActive) {
+      //       const dx = p.x - clickPos.current.x;
+      //       const dy = p.y - clickPos.current.y;
+      //       const dist = Math.sqrt(dx * dx + dy * dy);
+      //       if (dist < 200) {
+      //         const strength = (1 - dist / 200) * 0.3;
+      //         p.dx += dx * strength;
+      //         p.dy += dy * strength;
+      //       }
+      //     }
 
-          // Apply friction
-          p.dx *= friction;
-          p.dy *= friction;
+      //     // Apply friction
+      //     p.dx *= friction;
+      //     p.dy *= friction;
 
-          p.x += p.dx;
-          p.y += p.dy;
+      //     p.x += p.dx;
+      //     p.y += p.dy;
 
-          if (p.x < 0 || p.x > width) p.dx *= -1;
-          if (p.y < 0 || p.y > height) p.dy *= -1;
-        }
+      //     if (p.x < 0 || p.x > width) p.dx *= -1;
+      //     if (p.y < 0 || p.y > height) p.dy *= -1;
+      //   }
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius ?? 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255,255,255,0.7)";
-        ctx.shadowColor = "#fff";
-        ctx.shadowBlur = 5;
-        ctx.fill();
-        ctx.closePath();
-      }
+      //   ctx.beginPath();
+      //   ctx.arc(p.x, p.y, p.radius ?? 1.5, 0, Math.PI * 2);
+      //   ctx.fillStyle = "rgba(255,255,255,0.7)";
+      //   ctx.shadowColor = "#fff";
+      //   ctx.shadowBlur = 5;
+      //   ctx.fill();
+      //   ctx.closePath();
+      // }
 
       if (burstActive && now - clickPos.current.time! > 500) {
         clickPos.current.time = null;

@@ -8,7 +8,7 @@ const HeroSection = () => {
         <div className="space-y-8 animate-fade-in">
           <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
             Code. Connect.{" "}
-            <span className="font-extrabold bg-[linear-gradient(to_right,_#38bdf8_0%,_#f53794_30%,_#a16207_60%,_#be185d_100%)] text-transparent bg-clip-text block">Create.</span>
+            <span className="font-extrabold google-gradient text-transparent bg-clip-text block">Create.</span>
             <span className="block">With GDG.</span>
           </h1>
           
@@ -17,7 +17,7 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="btn-gradient text-lg px-8 py-4">
+            <Button className="bg-[#0ea5e9] hover:bg-[#318cb7] text-lg px-8 py-4">
               <a href="#register">Register Now</a>
             </Button>
             <div className="flex items-center gap-3 text-primary">
@@ -28,7 +28,7 @@ const HeroSection = () => {
         </div>
         
         <div className="relative flex items-center justify-center">
-          <img src="/gdg.svg" alt="GDG Logo" className="w-full h-full object-contain floating-div"/>
+          <img src="/gdg.svg" alt="GDG Logo" className="w-full h-full object-contain"/>
         </div>
       </div>
     </section>

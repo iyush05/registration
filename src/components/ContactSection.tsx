@@ -14,7 +14,7 @@ const ContactSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center space-y-8">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Get in <span className="text-gradient">Touch</span>
+            Get in <span className="gradient-text">Touch</span>
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-8"></div>
           

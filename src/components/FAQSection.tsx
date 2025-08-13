@@ -25,7 +25,7 @@ const FAQSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Frequently Asked <span className="text-gradient">Questions</span>
+            Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>

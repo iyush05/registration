@@ -171,6 +171,19 @@ All colors MUST be HSL.
   animation: float 3s ease-in-out infinite;
 }
 
+.gradient-text {
+  background: linear-gradient(135deg, #4285f4, #34a853);
+  @apply bg-clip-text text-transparent;
+}
+
+.google-gradient {
+        @apply bg-gradient-to-br from-[#4285f4] via-[#ea4335] to-[#34a853] bg-clip-text text-transparent;
+
+
+
+
+}
+
 @keyframes float {
   0% {
     transform: translateY(0px);

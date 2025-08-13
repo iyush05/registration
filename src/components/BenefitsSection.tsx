@@ -37,7 +37,7 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why <span className="text-gradient">Join?</span>
+            Why <span className="gradient-text">Join?</span>
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto"></div>
         </div>

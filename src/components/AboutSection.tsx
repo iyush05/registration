@@ -4,7 +4,7 @@ export default function GDSCComponent() {
   return (
     <div id="about" className="relative z-10 floating-dots">
     <h1 className="text-4xl lg:text-5xl font-bold text-white flex justify-center z-10">
-          What is &nbsp;<span className="text-gradient">GDG?</span>
+          What is &nbsp;<span className="gradient-text">GDG?</span>
     </h1> 
     <div className="flex flex-col lg:flex-row items-center gap-8 p-8 max-w-6xl mx-auto">
       
