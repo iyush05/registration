@@ -27,7 +27,7 @@ const Navigation = () => {
           </a>
         </div>
         
-        <Button className="bg-[#0ea5e9] hover:bg-[#318cb7]">
+        <Button asChild className="bg-[#0ea5e9] hover:bg-[#318cb7]">
           <a href="#register">Register Now</a>
         </Button>
       </div>

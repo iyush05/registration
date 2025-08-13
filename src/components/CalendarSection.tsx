@@ -18,7 +18,7 @@ const CalendarSection = () => {
               <div className="text-primary font-semibold text-sm tracking-wider">AUGUST</div>
             </div>
             
-            <Button className="bg-[#0ea5e9] hover:bg-[#318cb7] text-lg px-8 py-4">
+            <Button asChild className="bg-[#0ea5e9] hover:bg-[#318cb7] text-lg px-8 py-4">
               <a href="#register">Register Now</a>
             </Button>
           </div>

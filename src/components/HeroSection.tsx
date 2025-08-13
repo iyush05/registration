@@ -17,7 +17,7 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="bg-[#0ea5e9] hover:bg-[#318cb7] text-lg px-8 py-4">
+            <Button asChild className="bg-[#0ea5e9] hover:bg-[#318cb7] text-lg px-8 py-4">
               <a href="#register">Register Now</a>
             </Button>
             <div className="flex items-center gap-3 text-primary">
