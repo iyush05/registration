@@ -1,10 +1,9 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 
-const NeonFloatingBackground = () => {
+const ContourBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const mouse = useRef({ x: -1000, y: -1000 });
-  const clickPos = useRef<{ x: number; y: number; time: number | null }>({ x: 0, y: 0, time: null });
+  const timeRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -15,164 +14,43 @@ const NeonFloatingBackground = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const attractionRadius = 150;
-    const friction = 0.97;
-    const orbitingPlanets: {
-      angle: number;
-      radius: number;
-      centerX: number;
-      centerY: number;
-      orbitSpeed: number;
-    }[] = [];
-
-    const isMobile = window.innerWidth <= 768;
-    const neonCircleCount = isMobile ? 0 : 0;
-
-    const neonCircles = Array.from({ length: neonCircleCount }, (_, i) => ({
-      layer: i % 3,
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: 3 + Math.random() * 3,
-      dx: (-0.2 + Math.random() * 0.4) * (0.5 + i % 3 * 0.5),
-      dy: (-0.2 + Math.random() * 0.4) * (0.5 + i % 3 * 0.5),
-      color: `hsl(${Math.random() * 360}, 100%, 70%)`
-    }));
-
-    const planets = Array.from({ length: 20 }, (_, i) => {
-      if (i < 3) {
-        const centerX = Math.random() * width;
-        const centerY = Math.random() * height;
-        const radius = 5 + Math.random() * 30;
-        const angle = Math.random() * Math.PI * 2;
-        const orbitSpeed = 0.002 + Math.random() * 0.004;
-        orbitingPlanets.push({ angle, radius, centerX, centerY, orbitSpeed });
-        return { orbit: true, angle, radius, centerX, centerY, dx: 0, dy: 0, x: 0, y: 0 };
-      } else {
-        return {
-          orbit: false,
-          x: Math.random() * width,
-          y: Math.random() * height,
-          radius: 1 + Math.random() * 2,
-          dx: -0.1 + Math.random() * 0.2,
-          dy: -0.1 + Math.random() * 0.2
-        };
-      }
-    });
-
-    const applyAttraction = (circle: any) => {
-      const dx = mouse.current.x - circle.x;
-      const dy = mouse.current.y - circle.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < attractionRadius) {
-        const force = (1 - dist / attractionRadius) * 0.004;
-        circle.dx += dx * force;
-        circle.dy += dy * force;
-      }
-    };
-
     const animate = () => {
-      ctx.fillStyle = "#152845";
+      timeRef.current += 0.005; // Very slow movement
+      
+      ctx.fillStyle = "#0a0f1c";
       ctx.fillRect(0, 0, width, height);
 
-      const now = performance.now();
-      const burstActive = clickPos.current.time !== null && now - clickPos.current.time < 500;
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+      ctx.lineWidth = 1;
 
-      // Neon Circles
-      for (let c of neonCircles) {
-        applyAttraction(c);
-
-        if (burstActive) {
-          const dx = c.x - clickPos.current.x;
-          const dy = c.y - clickPos.current.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 200) {
-            const strength = (1 - dist / 200) * 0.4;
-            c.dx += dx * strength;
-            c.dy += dy * strength;
+      // Draw random shaped contour lines
+      for (let i = 0; i < 15; i++) {
+        const y = (height / 15) * i;
+        const offset = Math.sin(timeRef.current + i * 0.5) * 15;
+        
+        ctx.beginPath();
+        
+        for (let x = 0; x <= width; x += 10) {
+          // Multiple random wave components for irregular shape
+          const wave1 = Math.sin((x * 0.005) + timeRef.current + i * 0.7) * 20;
+          const wave2 = Math.cos((x * 0.012) + timeRef.current * 1.3 + i * 0.4) * 15;
+          const wave3 = Math.sin((x * 0.008) + timeRef.current * 0.7 + i * 1.2) * 10;
+          const wave4 = Math.cos((x * 0.015) + timeRef.current * 2 + i * 0.9) * 8;
+          
+          const randomY = y + offset + wave1 + wave2 + wave3 + wave4;
+          
+          if (x === 0) {
+            ctx.moveTo(x, randomY);
+          } else {
+            ctx.lineTo(x, randomY);
           }
         }
-
-        // Apply friction
-        c.dx *= friction;
-        c.dy *= friction;
-
-        c.x += c.dx;
-        c.y += c.dy;
-
-        if (c.x < 0 || c.x > width) c.dx *= -1;
-        if (c.y < 0 || c.y > height) c.dy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);
-        ctx.shadowColor = c.color;
-        ctx.shadowBlur = 15;
-        ctx.fillStyle = c.color;
-        ctx.fill();
-        ctx.closePath();
-      }
-
-      // Planets
-      // for (let i = 0; i < planets.length; i++) {
-      //   const p = planets[i];
-
-      //   if (p.orbit) {
-      //     const orbit = orbitingPlanets[i];
-      //     orbit.angle += orbit.orbitSpeed;
-      //     p.x = orbit.centerX + Math.cos(orbit.angle) * orbit.radius;
-      //     p.y = orbit.centerY + Math.sin(orbit.angle) * orbit.radius;
-      //   } else {
-      //     applyAttraction(p);
-
-      //     if (burstActive) {
-      //       const dx = p.x - clickPos.current.x;
-      //       const dy = p.y - clickPos.current.y;
-      //       const dist = Math.sqrt(dx * dx + dy * dy);
-      //       if (dist < 200) {
-      //         const strength = (1 - dist / 200) * 0.3;
-      //         p.dx += dx * strength;
-      //         p.dy += dy * strength;
-      //       }
-      //     }
-
-      //     // Apply friction
-      //     p.dx *= friction;
-      //     p.dy *= friction;
-
-      //     p.x += p.dx;
-      //     p.y += p.dy;
-
-      //     if (p.x < 0 || p.x > width) p.dx *= -1;
-      //     if (p.y < 0 || p.y > height) p.dy *= -1;
-      //   }
-
-      //   ctx.beginPath();
-      //   ctx.arc(p.x, p.y, p.radius ?? 1.5, 0, Math.PI * 2);
-      //   ctx.fillStyle = "rgba(255,255,255,0.7)";
-      //   ctx.shadowColor = "#fff";
-      //   ctx.shadowBlur = 5;
-      //   ctx.fill();
-      //   ctx.closePath();
-      // }
-
-      if (burstActive && now - clickPos.current.time! > 500) {
-        clickPos.current.time = null;
+        
+        ctx.stroke();
       }
 
       requestAnimationFrame(animate);
     };
-
-    window.addEventListener("mousemove", (e) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
-    });
-
-    window.addEventListener("click", (e) => {
-      clickPos.current = {
-        x: e.clientX,
-        y: e.clientY,
-        time: performance.now()
-      };
-    });
 
     window.addEventListener("resize", () => {
       width = canvas.width = window.innerWidth;
@@ -182,19 +60,16 @@ const NeonFloatingBackground = () => {
     animate();
 
     return () => {
-      window.removeEventListener("mousemove", () => {});
-      window.removeEventListener("click", () => {});
       window.removeEventListener("resize", () => {});
     };
   }, []);
 
   return (
     <canvas
-  ref={canvasRef}
-  className="fixed inset-0 pointer-events-none"
-/>
-
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none"
+    />
   );
 };
 
-export default NeonFloatingBackground;
+export default ContourBackground;
