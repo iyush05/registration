@@ -8,6 +8,7 @@ import RegistrationSection from "@/components/RegistrationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import RegistrationForm from "@/components/Register";
+import RegistrationClose from "@/components/RegistrationClose";
 
 const Index = () => {
   return (
@@ -19,7 +20,8 @@ const Index = () => {
       <BenefitsSection />
       <FAQSection />
       {/* <RegistrationSection /> */}
-      <RegistrationForm />
+      {/* <RegistrationForm /> */}
+      <RegistrationClose />
       <ContactSection />
       <Footer />
     </div>
