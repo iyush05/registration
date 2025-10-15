@@ -1,72 +1,72 @@
-import { Code, Wrench, Users, Award } from "lucide-react";
+import React from 'react';
 
 const BenefitsSection = () => {
-  const benefits = [
-    {
-      icon: Code,
-      title: "Latest Technologies",
-      description: "Learn about Flutter, Firebase, Web Technologies, Cloud, and more from experts.",
-      color: "from-primary to-cyan-400",
-      borderColor: "border-primary/30"
-    },
-    {
-      icon: Wrench,
-      title: "Hands-on Workshops", 
-      description: "Participate in interactive workshops and live coding sessions with mentors.",
-      color: "from-green-400 to-emerald-500",
-      borderColor: "border-green-400/30"
-    },
-    {
-      icon: Users,
-      title: "Community Networking",
-      description: "Connect with like-minded developers and build your professional network.",
-      color: "from-secondary to-purple-500",
-      borderColor: "border-secondary/30"
-    },
-    {
-      icon: Award,
-      title: "Swag & Certificates",
-      description: "Get certified participation and exclusive Google swag items.",
-      color: "from-pink-400 to-rose-500",
-      borderColor: "border-pink-400/30"
-    }
+  const stats = [
+    { number: '50+', label: 'Speakers' },
+    { number: '300+', label: 'Global Attendees' },
+    { number: '2', label: 'Days of Workshops' },
+    { number: '4', label: 'Dedicated Tracks' }
   ];
 
   return (
-    <section id="benefits" className="py-20 relative floating-dots">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why <span className="gradient-text">Join?</span>
-          </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto"></div>
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950 px-8 py-16 overflow-hidden">
+      {/* Top Section */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
+        {/* Left Content */}
+        <div className="z-10">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8 tracking-wide">
+            Why The Commit To Change?
+          </h1>
+          <p className="text-white text-lg lg:text-xl leading-relaxed mb-8 opacity-90">
+            The proprietary world is binary. Open source is a spectrum. The Third Space is dedicated to exploring the intersection of technology, governance, and decentralized contribution. We are a neutral forum for tackling challenges in project sustainability, ethical AI, and the next generation of cloud-native infrastructure —all built on open standards.
+          </p>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+            More Details
+          </button>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((benefit, index) => {
-            const IconComponent = benefit.icon;
-            return (
-              <div
-                key={index}
-                className={`card-gradient rounded-2xl p-6 hover:scale-105 transition-all duration-300 border-t-4 ${benefit.borderColor} group hover:shadow-glow`}
-              >
-                <div className="space-y-4">
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${benefit.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold">{benefit.title}</h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {benefit.description}
+
+        {/* Right - 3D Abstract Shape */}
+        <div className="relative flex justify-center items-center">
+          <img src="" alt="image" />
+        </div>
+      </div>
+
+      
+
+      {/* Stats Section */}
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center items-end gap-8 lg:gap-4">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="relative group"
+              style={{
+                marginBottom: `${index * 20}px`
+              }}
+            >
+              <div className="relative bg-gradient-to-b from-blue-900/40 to-purple-900/40 backdrop-blur-sm border border-blue-400/30 rounded-full px-12 py-16 w-56 text-center shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105">
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-b from-blue-500/20 to-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-5xl lg:text-6xl font-bold text-white mb-4">
+                    {stat.number}
+                  </h3>
+                  <p className="text-white text-sm lg:text-base opacity-90">
+                    {stat.label}
                   </p>
                 </div>
               </div>
-            );
-          })}
+              
+              {/* Connecting line (except for last item) */}
+              {index < stats.length - 1 && (
+                <div className="absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-purple-400/50 to-transparent hidden lg:block"></div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

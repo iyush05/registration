@@ -9,6 +9,10 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import RegistrationForm from "@/components/Register";
 import RegistrationClose from "@/components/RegistrationClose";
+import OpenSourceQuotes from "@/components/OpenSourceQuotes";
+import MindsBehindMovement from "@/components/MindsBehindMovement";
+import SpeakerSessions from "@/components/SpeakerSessions";
+import Speakers from "@/components/Speakers";
 
 const Index = () => {
   return (
@@ -16,13 +20,17 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <CalendarSection />
-      <AboutSection />
       <BenefitsSection />
-      <FAQSection />
+      <AboutSection />
+      <OpenSourceQuotes />
+      <MindsBehindMovement />
+      <SpeakerSessions />
+      <Speakers />
+      {/* <FAQSection /> */}
       {/* <RegistrationSection /> */}
       {/* <RegistrationForm /> */}
       <RegistrationClose />
-      <ContactSection />
+      {/* <ContactSection /> */}
       <Footer />
     </div>
   );

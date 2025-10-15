@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <NeonFloatingBackground />
+    {/* <NeonFloatingBackground /> */}
     <TooltipProvider>
       <Toaster />
       <Sonner />

@@ -1,53 +1,47 @@
+import React from 'react';
 
-
-export default function GDSCComponent() {
+const GDSCComponent = () => {
   return (
-    <div id="about" className="relative z-10 floating-dots">
-    <h1 className="text-4xl lg:text-5xl font-bold text-white flex justify-center z-10">
-          What is &nbsp;<span className="gradient-text">GDG?</span>
-    </h1> 
-    <div className="flex flex-col lg:flex-row items-center gap-8 p-8 max-w-6xl mx-auto">
-      
-      {/* Text Content */}
-      <div className="flex-1 space-y-6 z-10">
-        
-        <p className="text-lg leading-relaxed">
-          Google Developer Group (GDG) are community groups for students interested in Google developer technologies.
-        </p>
-        
-        <p className="text-lg text-white leading-relaxed">
-          We host events, workshops, and projects where students can learn about a wide range of technical topics and build solutions for local problems.
-        </p>
-        
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-teal-400 rounded-full"></div>
-            <span className="text-lg font-medium">100+ Universities</span>
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/10 to-gray-950 px-8 py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Left - Image Placeholder */}
+        <div className="relative flex justify-center items-center">
+          <div className="w-96 h-96 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 border-2 border-dashed border-purple-500/30 flex items-center justify-center backdrop-blur-sm">
+            <div className="text-center">
+              <div className="text-purple-400 text-6xl mb-4">🖼️</div>
+              <p className="text-purple-300 text-lg font-medium">Image Placeholder</p>
+              <p className="text-purple-400/60 text-sm mt-2">Add your 3D graphic here</p>
+            </div>
           </div>
           
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-            <span className="text-lg font-medium">Student-Led</span>
-          </div>
+          {/* Ambient glow */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-blue-500/20 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Right - Content */}
+        <div className="relative z-10">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8 tracking-wide">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-pink-200" 
+                  style={{ textShadow: '0 0 40px rgba(255, 255, 255, 0.5)' }}>
+              What is Open Source?
+            </span>
+          </h1>
           
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
-            <span className="text-lg font-medium">Open to All</span>
-          </div>
+          <p className="text-white text-lg lg:text-xl leading-relaxed mb-10 opacity-90">
+            Open Source is about collaboration, transparency, and community-driven innovation. It empowers developers and creators worldwide to share knowledge, build freely accessible software, and contribute to projects that shape the digital future.
+          </p>
+          
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-blue-500/50 hover:scale-105">
+            More Details
+          </button>
         </div>
       </div>
-      
-      {/* Image */}
-      <div className="flex-1">
-        <div className="relative w-full h-80 lg:h-96 rounded-lg overflow-hidden">
-          <img
-            src="/Group.jpg"
-            alt="GDSC students group photo"
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </div>
+
+      {/* Background ambient effects */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl pointer-events-none"></div>
     </div>
   );
-}
+};
+
+export default GDSCComponent;
