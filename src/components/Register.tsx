@@ -101,11 +101,8 @@ export default function RegistrationForm() {
         otp: '',
         phone: '',
         gender: '',
-        hackerrankId: '',
-        unstopId: '',
         branch: '',
         hostelStatus: '',
-        domain: '',
         updates: false,
     });
 
@@ -117,11 +114,13 @@ export default function RegistrationForm() {
     };
 
     const validateStudentNo = (studentNo) => {
-        const trimmed = studentNo.trim();
-        if (!trimmed) return "Student number is required";
-        if (!trimmed.startsWith("24")) return "Only 2nd year students are eligible";
-        return null;
-    };
+    const trimmed = studentNo.trim();
+    if (!trimmed) return "Student number is required";
+    if (!trimmed.startsWith("23") && !trimmed.startsWith("24") && !trimmed.startsWith("25")) {
+        return "Only 2nd, 3rd, and 4th year students are eligible";
+    }
+    return null;
+};
 
     const validateEmail = (email, studentNo = '') => {
         if (!email) return "Email is required";
@@ -172,43 +171,6 @@ export default function RegistrationForm() {
         return null;
     };
 
-    const validateHackerRankId = (id) => {
-        const trimmed = id.trim();
-        if (!trimmed) return "HackerRank ID is required";
-        
-        const hackerrankUrlRegex = /^(https?:\/\/)?(www\.)?hackerrank\.com\/profile\/[a-zA-Z0-9_.-]{3,30}$/;
-        if (!hackerrankUrlRegex.test(trimmed)) {
-            return "Please enter a valid HackerRank profile URL (e.g., hackerrank.com/profile/yourusername)";
-        }
-        
-        return null;
-    };
-
-    const validateUnstopId = (id) => {
-        const trimmed = id.trim();
-        if (!trimmed) return "Unstop ID is required";
-        
-        const unstopUrlRegex = /^(https?:\/\/)?(www\.)?unstop\.com\/u\/[a-zA-Z0-9_.-]{3,30}$/;
-        if (!unstopUrlRegex.test(trimmed)) {
-            return "Please enter a valid Unstop profile URL (e.g., unstop.com/u/yourusername)";
-        }
-        
-        return null;
-    };
-
-    const validateDomain = (domain) => {
-        if (!domain) return "Domain is required";
-        const allowedDomains = [
-            "Machine Learning",
-            "Web Development", 
-            "App Development",
-            "Designing",
-            "Managerial"
-        ];
-        if (!allowedDomains.includes(domain)) return "Invalid domain selection";
-        return null;
-    };
-
     const validateOTP = (otp) => {
         if (!otp) return "OTP is required";
         if (otp.length !== 6) return "OTP must be 6 digits";
@@ -239,15 +201,6 @@ export default function RegistrationForm() {
 
         const genderError = validateGender(form.gender);
         if (genderError) newErrors.gender = genderError;
-
-        const hackerRankError = validateHackerRankId(form.hackerrankId);
-        if (hackerRankError) newErrors.hackerrankId = hackerRankError;
-
-        const unstopError = validateUnstopId(form.unstopId);
-        if (unstopError) newErrors.unstopId = unstopError;
-
-        const domainError = validateDomain(form.domain);
-        if (domainError) newErrors.domain = domainError;
 
         if (!captchaValue) {
             newErrors.captcha = "Please complete the captcha";
@@ -322,15 +275,6 @@ export default function RegistrationForm() {
             case 'gender':
                 error = validateGender(value);
                 break;
-            case 'hackerrankId':
-                error = validateHackerRankId(value);
-                break;
-            case 'unstopId':
-                error = validateUnstopId(value);
-                break;
-            case 'domain':
-                error = validateDomain(value);
-                break;
             case 'otp':
                 error = validateOTP(value);
                 break;
@@ -369,9 +313,6 @@ export default function RegistrationForm() {
                 phone: form.phone,
                 hostelStatus: form.hostelStatus,
                 reCaptchaValue: captchaValue,
-                hackerrankId: form.hackerrankId,
-                unstopId: form.unstopId,
-                preferredDomains: [form.domain] // Send as array with single value
             };
 
             console.log('Registration payload:', registrationData);
@@ -485,11 +426,8 @@ export default function RegistrationForm() {
                         otp: '',
                         phone: '',
                         gender: '',
-                        hackerrankId: '',
-                        unstopId: '',
                         branch: '',
                         hostelStatus: '',
-                        domain: '',
                         updates: false,
                     });
                     setOtpSent(false);
@@ -523,7 +461,7 @@ export default function RegistrationForm() {
         <>
             <ToastContainer toasts={toasts} removeToast={removeToast} />
             
-            <div id="register" className="relative z-1 floating-dots min-h-screen">
+            <div id="register" className="relative z-1 min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950">
                 <div className="min-h-screen flex items-center justify-center font-sans">
                     <div className="rounded-2xl shadow-lg flex w-full max-w-4xl overflow-hidden">
                         <div className="w-full p-8 text-white md:p-12">
@@ -623,61 +561,6 @@ export default function RegistrationForm() {
                                                     <ChevronDown size={20} />
                                                 </div>
                                                 {errors.gender && <p className="mt-1 text-sm text-red-400">{errors.gender}</p>}
-                                            </div>
-
-                                            {/* Domain */}
-                                            <div className="relative">
-                                                <select 
-                                                    className={getSelectClassName('domain')} 
-                                                    value={form.domain} 
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    name="domain"
-                                                    disabled={otpSent}
-                                                >
-                                                    <option value="" disabled className="text-zinc-400">Domain</option>
-                                                    <option value="Machine Learning">Machine Learning</option>
-                                                    <option value="Web Development">Web Development</option>
-                                                    <option value="App Development">App Development</option>
-                                                    <option value="Designing">Designing</option>
-                                                    <option value="Managerial">Managerial</option>
-                                                </select>
-                                                <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-zinc-400">
-                                                    <ChevronDown size={20} />
-                                                </div>
-                                                {errors.domain && <p className="mt-1 text-sm text-red-400">{errors.domain}</p>}
-                                            </div>
-
-                                            {/* HackerRank ID */}
-                                            <div>
-                                                <input 
-                                                    value={form.hackerrankId}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    name="hackerrankId"
-                                                    type="text" 
-                                                    placeholder="HackerRank Profile Link" 
-                                                    className={getInputClassName('hackerrankId')}
-                                                    disabled={otpSent}
-                                                    autoComplete='off'
-                                                />
-                                                {errors.hackerrankId && <p className="mt-1 text-sm text-red-400">{errors.hackerrankId}</p>}
-                                            </div>
-
-                                            {/* Unstop ID */}
-                                            <div>
-                                                <input 
-                                                    value={form.unstopId}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    name="unstopId"
-                                                    type="text" 
-                                                    placeholder="Unstop Profile Link" 
-                                                    className={getInputClassName('unstopId')}
-                                                    disabled={otpSent}
-                                                    autoComplete='off'
-                                                />
-                                                {errors.unstopId && <p className="mt-1 text-sm text-red-400">{errors.unstopId}</p>}
                                             </div>
 
                                             {/* Branch */}

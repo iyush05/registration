@@ -27,14 +27,20 @@ const BenefitsSection = () => {
 
         {/* Right - 3D Abstract Shape */}
         <div className="relative flex justify-center items-center">
-          <img src="" alt="image" />
+          <img src="/what-is-oss.png" alt="image" />
         </div>
       </div>
 
       
 
       {/* Stats Section */}
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto "
+          style={{
+          backgroundImage: 'url(/line1.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}>
         <div className="flex flex-wrap justify-center items-end gap-8 lg:gap-4">
           {stats.map((stat, index) => (
             <div

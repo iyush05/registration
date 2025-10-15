@@ -8,7 +8,8 @@ export default function MindsBehindhMovement() {
       description: "Atul Chitnis was a visionary technologist and one of India's earliest and most passionate advocates of Free and Open Source Software (FOSS).",
       additionalInfo: "As the driving force behind Linux Bangalore and FOSS.IN, Atul inspired thousands of developers to explore, share, and contribute to open technologies.",
       quote: "Atul Chitnis didn't just promote open source — he built a community around openness, collaboration, and innovation in India.",
-      namePosition: "left"
+      namePosition: "left",
+      link: "/atul.png"
     },
     {
       name: "Samir K. Brahmachari",
@@ -16,7 +17,8 @@ export default function MindsBehindhMovement() {
       description: "Dr. Samir K. Brahmachari is a visionary scientist who championed the concept of Open Source Drug Discovery (OSDD) — applying open-source principles to healthcare and biotechnology.",
       additionalInfo: "As the former Director-General of CSIR (Council of Scientific and Industrial Research), India, he pioneered collaborative science driven by transparency and shared innovation.",
       quote: "When code can save lives — that's the power of open science.",
-      namePosition: "right"
+      namePosition: "right",
+      link: "/samir.png"
     }
   ];
 
@@ -48,8 +50,8 @@ export default function MindsBehindhMovement() {
               </div>
             </div>
             <div className="flex-shrink-0 w-full md:w-80">
-              <div className="w-full md:w-80 h-80 sm:h-96 md:h-[500px] bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg shadow-2xl flex items-center justify-center mx-auto">
-                <span className="text-gray-400 text-sm">Image Placeholder</span>
+              <div className="w-full aspect-[4/5] md:h-[500px] md:aspect-auto rounded-lg overflow-hidden">
+                <img src={profile.link} alt={profile.name} className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

@@ -6,16 +6,9 @@ const GDSCComponent = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left - Image Placeholder */}
         <div className="relative flex justify-center items-center">
-          <div className="w-96 h-96 rounded-full bg-gradient-to-br from-purple-600/20 to-pink-600/20 border-2 border-dashed border-purple-500/30 flex items-center justify-center backdrop-blur-sm">
-            <div className="text-center">
-              <div className="text-purple-400 text-6xl mb-4">🖼️</div>
-              <p className="text-purple-300 text-lg font-medium">Image Placeholder</p>
-              <p className="text-purple-400/60 text-sm mt-2">Add your 3D graphic here</p>
-            </div>
+          <div className="w-96 h-96 flex items-center justify-center">
+              <img src="piece1.png" alt="" />
           </div>
-          
-          {/* Ambient glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-blue-500/20 rounded-full blur-3xl"></div>
         </div>
 
         {/* Right - Content */}

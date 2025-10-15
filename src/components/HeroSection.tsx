@@ -15,7 +15,7 @@ const EventHero: React.FC = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=600&fit=crop)',
+              backgroundImage: 'url(/Group.jpg)',
               filter: 'brightness(0.5)'
             }}
           ></div>
