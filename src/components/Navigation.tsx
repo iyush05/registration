@@ -36,8 +36,8 @@ const Navigation = () => {
     <nav className="px-8 py-6 bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950 fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="text-white text-3xl font-light tracking-wide">
-          Commit Con
+        <div className="font-mono text-green-400 text-3xl tracking-wider">
+          &lt;Commit<span className="text-white">Con /&gt;</span>
         </div>
 
         {/* Navigation Links */}
