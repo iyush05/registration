@@ -7,25 +7,25 @@ export default function Speakers() {
       name: 'Yash Khare',
       role: 'Software Engineer @Keploy, GSoC 2025 Mentor, LFX 2023 Intern',
       company: 'At Keploy',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQGa1BkP9xW8Bw/profile-displayphoto-shrink_800_800/B56ZOG69SFGsAc-/0/1733135423133?e=1763596800&v=beta&t=DmWUqE0x_U1sbxJdN6oQHM63__9xnYyQlz9s-tO8oyM'
+      image: '/yash.jpeg'
     },
     {
       name: 'Sankalp Jha',
       role: `GSoC 2025 Contributor and GDG on Campus Co-organizer`,
       company: 'At Google',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQHKYgc4-YeVUg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1713771479315?e=1763596800&v=beta&t=7gV2UsLHKURgpai_uTZ3U0V16-4pq1wmOF_lOhZmnc0'
+      image: '/sankalp.jpeg'
     },
     {
       name: 'Abhishek Kumar',
       role: 'Reliance Foundation Undergraduate Scholar and LFX Mentee 2025',
       company: 'At Google',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQE5irWhY-Qasw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724046419374?e=1763596800&v=beta&t=Upy5Pt-EkwH_1U9529WoKzFeJL77R0-LOcr67lb2hUA'
+      image: 'abhishek.jpeg'
     },
     {
       name: 'Akarsh Sahlot',
       role: 'C4GT Mentee and LFX Mentee 2025',
       company: 'At Google',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQGnwImLkEF9Ww/profile-displayphoto-crop_800_800/B56Zl1vqvgHkAI-/0/1758617056982?e=1763596800&v=beta&t=UEw07xtb3HO5On7c9bY1rPrZ05lwco2NlJVDrRsPRFg'
+      image: '/akarsh.jpeg'
     }
   ];
 
