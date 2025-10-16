@@ -4,7 +4,7 @@ const EventHero: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950 flex items-center justify-center px-12">
+    <div id='home' className="min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950 flex items-center justify-center px-12">
       <div className="relative w-full max-w-6xl">
         {/* Animated gradient border */}
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 blur-xl opacity-75 animate-pulse"></div>
@@ -34,7 +34,7 @@ const EventHero: React.FC = () => {
             
             {/* Main heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
-              Commit To Change
+              Commit Con
             </h1>
             
             {/* Subtitle */}

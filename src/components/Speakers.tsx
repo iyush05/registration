@@ -30,7 +30,7 @@ export default function Speakers() {
   ];
 
   return (
-    <div 
+    <div id='speakers' 
       className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950"
     //   style={{
     //     backgroundImage: 'url("YOUR_BACKGROUND_IMAGE_URL_HERE")',

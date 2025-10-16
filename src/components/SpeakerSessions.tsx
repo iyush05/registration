@@ -3,21 +3,21 @@ import React from 'react';
 export default function SpeakerSessions() {
   const sessions = [
     {
-      year: '2022',
-      title: 'The Blueprint Assembly',
-      date: 'March 8, New Delhi',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80'
+      year: '2025',
+      title: 'Discover-Unleash your Potential',
+      date: '18-19 April 2025 , Ghaziabad',
+      image: '/Group.jpg'
     },
     {
-      year: '2023',
-      title: 'The Nexus Dialogue',
-      date: 'June 16, Bangalore',
-      image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80'
+      year: '2024',
+      title: 'Tech Winter Break',
+      date: 'Dec 16, Ghaziabad',
+      image: '/Group.jpg'
     },
     {
       year: '2024',
       title: 'EchoSphere',
-      date: 'October 22, Hyderabad',
+      date: 'October 22, Ghaziabad',
       image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80'
     }
   ];

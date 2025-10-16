@@ -2,7 +2,7 @@ import React from 'react';
 
 const GDSCComponent = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/10 to-gray-950 px-8 py-20 overflow-hidden">
+    <div id='about' className="relative min-h-screen bg-gradient-to-b from-gray-950 via-blue-950/10 to-gray-950 px-8 py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left - Image Placeholder */}
         <div className="relative flex justify-center items-center">

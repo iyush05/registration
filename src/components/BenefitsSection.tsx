@@ -15,7 +15,7 @@ const BenefitsSection = () => {
         {/* Left Content */}
         <div className="z-10">
           <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8 tracking-wide">
-            Why The Commit To Change?
+            Why The Commit Con?
           </h1>
           <p className="text-white text-lg lg:text-xl leading-relaxed mb-8 opacity-90">
             The proprietary world is binary. Open source is a spectrum. The Third Space is dedicated to exploring the intersection of technology, governance, and decentralized contribution. We are a neutral forum for tackling challenges in project sustainability, ethical AI, and the next generation of cloud-native infrastructure —all built on open standards.
