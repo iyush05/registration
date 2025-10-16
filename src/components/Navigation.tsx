@@ -36,7 +36,13 @@ const Navigation = () => {
     <nav className="px-8 py-6 bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950 fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="font-mono text-green-400 text-3xl tracking-wider">
+        <div
+          onClick={() => {
+            const section = document.getElementById("home");
+            if (section) section.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="cursor-pointer font-mono text-green-400 text-3xl tracking-wider hover:scale-105 transition-transform duration-300"
+        >
           &lt;Commit<span className="text-white">Con /&gt;</span>
         </div>
 
@@ -58,7 +64,15 @@ const Navigation = () => {
         </div>
 
         {/* Register Button */}
-        <button className="bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors duration-200">
+        <button
+          onClick={() => {
+            const section = document.getElementById("register");
+            if (section) {
+              section.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors duration-200"
+        >
           Register
         </button>
       </div>
