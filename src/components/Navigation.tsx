@@ -37,7 +37,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="text-white text-3xl font-light tracking-wide">
-          Commit To Change
+          Commit Con
         </div>
 
         {/* Navigation Links */}

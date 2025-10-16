@@ -39,7 +39,7 @@ export default function Footer() {
         {/* Event Name and GDG Info */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-            Commit To Change®
+            Commit Con®
           </h2>
           
           <div className="flex items-center justify-center gap-3 text-gray-300 mb-2">

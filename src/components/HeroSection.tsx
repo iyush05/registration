@@ -34,7 +34,7 @@ const EventHero: React.FC = () => {
             
             {/* Main heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
-              Commit To Change
+              Commit Con
             </h1>
             
             {/* Subtitle */}
