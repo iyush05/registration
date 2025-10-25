@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Linkedin } from 'lucide-react';
+import { User, Linkedin, Twitter } from 'lucide-react';
 
 export default function Speakers() {
   const speakers = [
@@ -8,28 +8,32 @@ export default function Speakers() {
       role: 'Software Engineer @Keploy, GSoC 2025 Mentor, LFX 2023 Intern',
       company: 'At Keploy',
       image: '/yash.jpeg',
-      linkedin: 'https://www.linkedin.com/in/khareyash05/' // example
+      linkedin: 'https://www.linkedin.com/in/yashkhare/',
+      twitter: 'https://x.com/khareyash05'
     },
     {
       name: 'Sankalp Jha',
-      role: `GSoC 2025 Contributor and GDG on Campus Co-organizer`,
+      role: 'GSoC 2025 Contributor and GDG on Campus Co-organizer',
       company: 'At Google',
       image: '/sankalp.jpeg',
-      linkedin: 'https://www.linkedin.com/in/sankalp-jha-18a95a244/'
+      linkedin: 'https://www.linkedin.com/in/sankalpjha/',
+      twitter: 'https://x.com/SankalpJha26'
     },
     {
       name: 'Abhishek Kumar',
       role: 'LFX Mentee at CNCF - kubeEdge and Reliance Foundation Undergraduate Scholar',
       company: 'At Google',
       image: '/abhishek.jpeg',
-      linkedin: 'https://www.linkedin.com/in/abhishek-kumar-170492258/'
+      linkedin: 'https://www.linkedin.com/in/abhishekkumar/',
+      twitter: 'https://twitter.com/abhishekkumar'
     },
     {
       name: 'Akarsh Sahlot',
       role: 'C4GT Mentee and LFX Mentee 2025',
       company: 'At Google',
       image: '/akarsh.jpeg',
-      linkedin: 'https://www.linkedin.com/in/akarshsahlot/'
+      linkedin: 'https://www.linkedin.com/in/akarshsahlot/',
+      twitter: 'https://x.com/AkarshSahlot'
     }
   ];
 
@@ -89,23 +93,37 @@ export default function Speakers() {
                 </div>
               </div>
 
-              {/* Role and LinkedIn */}
+              {/* Role and Social Links */}
               <div className="text-center mt-6 space-y-3">
                 <p className="text-xl font-semibold text-white mb-1">
                   {speaker.role}
                 </p>
 
-                {speaker.linkedin && (
-                  <a
-                    href={speaker.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all duration-300 hover:scale-105"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                    <span>Connect</span>
-                  </a>
-                )}
+                <div className="flex justify-center gap-4 mt-2">
+                  {/* LinkedIn */}
+                  {speaker.linkedin && (
+                    <a
+                      href={speaker.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                  )}
+
+                  {/* Twitter */}
+                  {speaker.twitter && (
+                    <a
+                      href={speaker.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-sky-500 hover:bg-sky-600 text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-sky-400/30"
+                    >
+                      <Twitter className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
