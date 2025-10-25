@@ -27,9 +27,9 @@ export default function CalendarSection() {
                    flex flex-col md:flex-row items-center 
                    justify-between gap-8 px-6 md:px-0"
       >
-        <Card title="Date :" text="20th OCT 2025" delay={0.2} />
+        <Card title="Date :" text="27th OCT 2025" delay={0.2} />
         <Card title="Time:" text={"10:00 am\nto\n6:00 pm"} delay={0.4} />
-        <Card title="Venue:" text="Conference Hall" delay={0.6} />
+        <Card title="Venue:" text="CSIT Seminar Hall" delay={0.6} />
       </div>
     </div>
   );
