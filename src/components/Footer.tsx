@@ -2,12 +2,12 @@ import React from 'react';
 import { Instagram, Youtube, Linkedin } from 'lucide-react';
 
 export default function Footer() {
-  const quickLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Events', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Team', href: '#' }
-  ];
+  // const quickLinks = [
+  //   { name: 'Home', href: '#' },
+  //   { name: 'Events', href: '#' },
+  //   { name: 'Projects', href: '#' },
+  //   { name: 'Team', href: '#' }
+  // ];
 
   const socialLinks = [
     { icon: Instagram, href: 'https://www.instagram.com/gdg_akgec/', label: 'Instagram' },
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div className="mb-12">
+        {/* <div className="mb-12">
           <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8">Quick Links</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {quickLinks.map((link, index) => (
@@ -61,7 +61,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Social Links */}
         <div className="mb-8">
