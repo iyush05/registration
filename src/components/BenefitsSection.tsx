@@ -2,9 +2,9 @@ import React from 'react';
 
 const BenefitsSection = () => {
   const stats = [
-    { number: '50+', label: 'Speakers' },
-    { number: '300+', label: 'Global Attendees' },
-    { number: '2', label: 'Days of Workshops' },
+    { number: '4', label: 'Speakers' },
+    { number: '200+', label: ' Attendees' },
+    { number: '1', label: 'Day of Speaker Session' },
     { number: '4', label: 'Dedicated Tracks' }
   ];
 
