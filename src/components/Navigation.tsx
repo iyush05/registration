@@ -41,7 +41,7 @@ const Navigation = () => {
             const section = document.getElementById("home");
             if (section) section.scrollIntoView({ behavior: "smooth" });
           }}
-          className="cursor-pointer font-mono text-green-400 text-2xl sm:text-3xl tracking-wider hover:scale-105 transition-transform duration-300"
+          className="cursor-pointer font-mono text-green-400 text-xl sm:text-3xl tracking-wider hover:scale-105 transition-transform duration-300"
         >
           &lt;Commit<span className="text-white">Con /&gt;</span>
         </div>
