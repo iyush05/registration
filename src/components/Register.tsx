@@ -117,7 +117,7 @@ export default function RegistrationForm() {
     const trimmed = studentNo.trim();
     if (!trimmed) return "Student number is required";
     if (!trimmed.startsWith("23") && !trimmed.startsWith("24") && !trimmed.startsWith("25")) {
-        return "Only 2nd, 3rd, and 4th year students are eligible";
+        return "Only 1st , 2nd and 3rd year students are eligible";
     }
     return null;
 };
