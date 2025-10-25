@@ -17,7 +17,7 @@ export default function Speakers() {
     },
     {
       name: 'Abhishek Kumar',
-      role: 'Reliance Foundation Undergraduate Scholar and LFX Mentee 2025',
+      role: 'LFX Mentee at CNCF - kubeEdge and Reliance Foundation Undergraduate Scholar',
       company: 'At Google',
       image: 'abhishek.jpeg'
     },
