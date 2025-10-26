@@ -114,36 +114,46 @@ export default function RegistrationForm() {
     };
 
     const validateStudentNo = (studentNo) => {
-    const trimmed = studentNo.trim();
-    if (!trimmed) return "Student number is required";
-    if (!trimmed.startsWith("23") && !trimmed.startsWith("24") && !trimmed.startsWith("25")) {
-        return "Only 1st , 2nd and 3rd year students are eligible";
-    }
-    return null;
-};
-
-    const validateEmail = (email, studentNo = '') => {
-        if (!email) return "Email is required";
-        
-        if (!email.endsWith('@akgec.ac.in')) {
-            return "Please use your official college email ending with @akgec.ac.in";
+        const trimmed = studentNo.trim();
+        if (!trimmed) return "Student number is required";
+      
+        // Allow lateral student format like 2310043-d
+        const studentNoRegex = /^(23|24|25)\d{4,5}(-[a-zA-Z])?$/;
+      
+        if (!studentNoRegex.test(trimmed)) {
+          return "Invalid student number format or not eligible (only 1st–3rd year students)";
         }
-        
-        const emailPrefix = email.split('@')[0];
-        
-        if (studentNo && studentNo.trim()) {
-            if (!emailPrefix.includes(studentNo.trim())) {
-                return `Please enter your own college email address. Example: yourname${studentNo}@akgec.ac.in`;
-            }
-        }
-        
-        const emailFormatRegex = /^[a-z]+[0-9]+$/;
-        if (!emailFormatRegex.test(emailPrefix)) {
-            return "Email format should be: yourname followed by numbers @akgec.ac.in";
-        }
-        
+      
         return null;
-    };
+      };
+      
+      const validateEmail = (email, studentNo = '') => {
+        if (!email) return "Email is required";
+      
+        // Must end with @akgec.ac.in
+        if (!email.endsWith('@akgec.ac.in')) {
+          return "Please use your official college email ending with @akgec.ac.in";
+        }
+      
+        const emailPrefix = email.split('@')[0];
+      
+        // Allow pattern like aditya2310043 or aditya2310043-d
+        const emailFormatRegex = /^[a-z]+[0-9]+(-[a-z])?$/i;
+        if (!emailFormatRegex.test(emailPrefix)) {
+          return "Email format should be: yourname + student number (e.g., yourname2310043 or yourname2310043-d)";
+        }
+      
+        // If student number is provided, ensure it appears in the email prefix
+        if (studentNo && studentNo.trim()) {
+          const normalizedStudentNo = studentNo.trim().toLowerCase();
+          if (!emailPrefix.toLowerCase().includes(normalizedStudentNo)) {
+            return `Please enter your own college email address (e.g., yourname${studentNo}@akgec.ac.in)`;
+          }
+        }
+      
+        return null;
+      };
+      
 
     const validatePhone = (phone) => {
         const phoneRegex = /^[6-9]\d{9}$/;
