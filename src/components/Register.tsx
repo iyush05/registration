@@ -118,7 +118,7 @@ export default function RegistrationForm() {
         if (!trimmed) return "Student number is required";
       
         // Allow lateral student format like 2310043-d
-        const studentNoRegex = /^(23|24|25)\d{4,5}(-[a-zA-Z])?$/;
+        const studentNoRegex = /^(23|24|25)\d{4,6}(-[a-zA-Z])?$/;
       
         if (!studentNoRegex.test(trimmed)) {
           return "Invalid student number format or not eligible (only 1st–3rd year students)";
