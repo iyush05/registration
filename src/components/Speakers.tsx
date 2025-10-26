@@ -24,8 +24,8 @@ export default function Speakers() {
       role: 'LFX Mentee at CNCF - kubeEdge and Reliance Foundation Undergraduate Scholar',
       company: 'At Google',
       image: '/abhishek.jpeg',
-      linkedin: 'https://www.linkedin.com/in/abhishekkumar/',
-      twitter: 'https://twitter.com/abhishekkumar'
+      linkedin: 'https://www.linkedin.com/in/abhishek-kumar-170492258/',
+      twitter: 'https://x.com/Abhishek_Ji_10'
     },
     {
       name: 'Akarsh Sahlot',
