@@ -28,8 +28,8 @@ const Index = () => {
       <Speakers />
       {/* <FAQSection /> */}
       {/* <RegistrationSection /> */}
-      <RegistrationForm />
-      {/* <RegistrationClose /> */}
+      {/* <RegistrationForm /> */}
+      <RegistrationClose />
       {/* <ContactSection /> */}
       <Footer />
     </div>
